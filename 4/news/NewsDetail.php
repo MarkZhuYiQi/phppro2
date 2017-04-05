@@ -36,19 +36,19 @@ class NewsDetail implements INews
         echo "<h2>".$get_news["news_title"]."</h2>";
         echo "<div>".$get_news["news_content"]."</div>";
 
-
         //执行插件方法
+        //循环插件库，将插件库中的对象依次执行一遍
         foreach($this->plugs as $plugName=>$plugObject)
         {
             $plugObject->update($this->news_id);
         }
-
     }
-
 
     function regPlug(IPlugin $plug)
     {
         // TODO: Implement regPlug() method.
+        //小技巧，直接将对象转换成字符串，将调用对象中的魔力函数__toString，返回字符串
+        //这里将plug对象存放到plugs中，待display时统一执行插件库中的内容。
         $this->plugs[strval($plug)]=$plug;
     }
 
