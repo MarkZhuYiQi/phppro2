@@ -15,12 +15,14 @@ abstract class userReg{
     }
     public function stepNext($user){
         //只有user的state和自己的mystate相同才会处理
-        if($this->step==$user->mystate){
+        if($this->step==$user->step){
             if($this->next){
+                //把下一步的标识传给user
                 $user->step=$this->next->step;
                 return $user;
             }
         }else{
+            //如果标识不同，那就将事务交给下一级去处理
             if($this->next){
                 return $this->next->stepNext($user);
             }

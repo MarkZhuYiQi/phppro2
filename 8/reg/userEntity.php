@@ -9,5 +9,5 @@ class userEntity{
     public $username='';
     public $password='';
     public $tel='';
-    public $step='step1';
+    public $step='1';
 }
