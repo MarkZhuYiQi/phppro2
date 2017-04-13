@@ -17,7 +17,6 @@ class newsDetail implements INews {
     }
     public function getPlugins(){
         $getClass=get_declared_classes();
-//        var_export($getClass);
         $class=array_slice($getClass,array_search(__CLASS__,$getClass)+1);
         foreach($class as $key => $_class){
             if(preg_match("/[\w+]Plugin$/",$_class)){
