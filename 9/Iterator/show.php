@@ -177,7 +177,6 @@ class News implements  Iterator,ArrayAccess,JsonSerializable
     {
         // TODO: Implement __invoke() method.
         return ($this->data);
-
     }
 }
 $news = new News();
