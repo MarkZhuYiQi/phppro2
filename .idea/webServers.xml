@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d94cb8e2-bc82-40ef-88d4-db0b0f884b5e" name="centOS" url="http://223.112.88.211">
+        <fileTransfer host="223.112.88.211" port="2121" rootFolder="/home/mark" password="df9ddf9ddf9ddf9ddf9ddf9ddf9ddfd3" username="mark">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+          <option name="port" value="2121" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
