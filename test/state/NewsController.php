@@ -11,4 +11,15 @@ class NewsController extends BaseController {
         $this->state->setState('title','quotation');
         include "./html/index.html";
     }
+    public function review(){
+        $this->action->then(function(){
+            return 'memcached ok';
+        })->then(function(){
+            return 'mysql ok';
+        });
+        foreach($this->action->commit() as $item){
+            var_export($item);
+            echo '<hr>';
+        }
+    }
 }

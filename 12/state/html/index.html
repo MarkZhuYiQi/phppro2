@@ -5,10 +5,11 @@
     <title><?php echo $GLOBALS['state']->root->title ?></title>
 </head>
 <body>
-    <?php $GLOBALS['state']->configIterator('news','newsList') ?>
-    <?php foreach($GLOBALS['state'] as $item): ?>
+<?php $GLOBALS['state']->configIterator('news','newsList'); ?>
+<?php foreach($GLOBALS['state'] as $item): ?>
     <h2><?php echo $item['title'] ?></h2>
     <p><?php echo $item['content'] ?></p>
-    <?php endforeach; ?>
+<hr>
+<?php endforeach; ?>
 </body>
 </html>
