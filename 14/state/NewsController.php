@@ -7,6 +7,13 @@
  */
 class NewsController extends BaseController {
     public $test='test';
+    public function __construct()
+    {
+        $this->action->then(function(){
+            return new JsonResult(['status'=>'success','message'=>'init data success']);
+        });
+    }
+
     function index(){
         $newsData=[
             ['title'=>'test1: MEIZU Pro6 Plus','content'=>'RMB:3299'],
@@ -23,12 +30,15 @@ class NewsController extends BaseController {
         //如果需要使用外面的变量，需要使用use集成变量
         $this->action->then(function() use($self){
             echo $self->test;
-            return 'memcached OK';
+            $logText='这是我在action里的操作内容';
+            //用get_defined_vars将当前变量们传递给call
+            $this->call("LogUtil/submit",get_defined_vars());
+            return new StringResult(['step'=>'memcached OK','stepNo'=>'2']);
         })->then(function(){
             return 'static files';
         });
-
-        /*//commit里面有yield执行到这个关键字就跑回来执行item
+        $this->action->commit('StringResult');
+        /*//这个方法很死板，只能讲每次action中的返回值打印，没法个性化操作。
         foreach($this->action->commit() as $item){
             var_export($item);
             echo '<hr>';
