@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    var socket = new WebSocket('ws://localhost:9090');
+
+    socket.onopen = function(event) {
+
+        //socket 双方一旦成功连接后
+        socket.send('init msg');
+
+    };
+    socket.onmessage = function(event) {
+        console.log('receive message!',event);
+        //接受到消息后
+    };
+
+    // 监听Socket的关闭
+    socket.onclose = function(event) {
+        console.log('socket closed!',event)
+    };
+    function sendMsg(){
+        socket.send('mark');
+    }
+</script>
+<body>
+<button onclick="sendMsg()">send meesage</button>
+</body>
+</html>

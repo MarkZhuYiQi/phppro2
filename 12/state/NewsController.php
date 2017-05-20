@@ -28,11 +28,11 @@ class NewsController extends BaseController {
             return 'static files';
         });
 
-        /*//commit里面有yield执行到这个关键字就跑回来执行item
+        //commit里面有yield执行到这个关键字就跑回来执行item
         foreach($this->action->commit() as $item){
             var_export($item);
             echo '<hr>';
-        }*/
+        }
     }
 }
 $GLOBALS['state']->configIterator('news','newsList');
